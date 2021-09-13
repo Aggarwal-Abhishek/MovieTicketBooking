@@ -10,9 +10,13 @@ from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.forms import UserCreationForm
 from webpages.forms import CreateUserForm, LoginForm
 
+from booking.models import Movie
 
 def home(request):
-    return render(request, 'webpages/home.html')
+    context = {
+        'movies': Movie.objects.all()
+    }
+    return render(request, 'webpages/home.html', context)
 
 def logout(request):
     auth_logout(request)
@@ -61,4 +65,14 @@ def register(request):
 
     context = {'form': form}
     return render(request, 'webpages/register.html', context)
+
+
+def movie(request, movie_id):
+    context = {
+        'movie': Movie.objects.get(id=movie_id),
+        # 'is_authenticated': request.user.is_authenticated,
+    }
+    return render(request, 'webpages/movie.html', context)
+
+
 

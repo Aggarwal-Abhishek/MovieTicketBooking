@@ -27,6 +27,7 @@ urlpatterns = [
     path('login/', webpages.views.login, name='login'),
     path('logout/', webpages.views.logout, name='logout'),
     path('register/', webpages.views.register, name='register'),
+    path('movie/<int:movie_id>', webpages.views.movie, name='movie'),
 ]
 
 if settings.DEBUG:

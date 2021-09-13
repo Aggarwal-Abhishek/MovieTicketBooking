@@ -3,16 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <title>Register</title>
   </head>
   <body>
 
     <div class="container">
-      
-
       <h1>Register</h1>
 
       {% load crispy_forms_tags %}
@@ -23,16 +19,9 @@
         <input type="submit" name="Register">
       </form>
 
-      <div>
-        <br>{{ form.errors }}
-      </div>
-
-      <div>
-        Already have an account? <a href="../login">Login</a> 
-      </div>
-
+      <div> <br>{{ form.errors }} </div>
+      <div> Already have an account? <a href="../login">Login</a> </div>
     </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->

@@ -1,44 +1,8 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap 4 Website Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <style>
-  img {
-    height: 500px;
-  }
-  </style>
-</head>
-<body>
+{% extends "webpages/base.html" %}
 
+{% block title %} {{ movie.name }} {% endblock %}
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="#">{{ request.user }}</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'home' %}">Home</a>
-      </li>
-      <li class="nav-item">
-        {% if request.user.is_authenticated %}
-          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-        {% else %}
-          <a class="nav-link" href="{% url 'login' %}">Login</a>
-        {% endif %}
-      </li>
-    </ul>
-  </div>  
-</nav>
-
+{% block content %}
 <div class="container text-center" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-16">
@@ -51,7 +15,7 @@
 <div class="container text-center" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-4">
-      <img src="{{ movie.image.url }}" class="fakeimg">
+      <img class="img_large" src="{{ movie.image.url }}" class="fakeimg">
     </div>
     <div class="col-sm-4">
       <input type="button" value="Buy Ticket" class="btn btn-primary">
@@ -61,7 +25,7 @@
     </div>
   </div>
 </div>
-
+{% endblock %}
 
 </body>
 </html>

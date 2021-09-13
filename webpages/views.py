@@ -68,11 +68,14 @@ def register(request):
 
 
 def movie(request, movie_id):
-    context = {
-        'movie': Movie.objects.get(id=movie_id),
-        # 'is_authenticated': request.user.is_authenticated,
-    }
-    return render(request, 'webpages/movie.html', context)
+    try:
+        context = {
+            'movie': Movie.objects.get(id=movie_id),
+        }
+        return render(request, 'webpages/movie.html', context)
+    except:
+        return redirect('home')
+
 
 
 
